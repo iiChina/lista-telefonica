@@ -9,7 +9,7 @@ public class Contato
     [BsonId]
     [BsonElement("_id")]
     [BsonRepresentation(BsonType.ObjectId)]
-    public ObjectId Id { get; set; }
+    public string Id { get; set; }
 
     [BsonElement("nome")]
     [JsonPropertyName("nome")]

@@ -2,8 +2,15 @@ using ListaTelefonica.Models;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 var client = new MongoClient("mongodb://localhost:27017");
 var db = client.GetDatabase("lista-telefonica");
